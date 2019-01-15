@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import Home from "./components/layouts/Home";
+import Search from "./components/layouts/Search";
+import MyPlaces from "./components/layouts/MyPlaces";
+
+import "./App.css";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    // initialize our state
+    constructor(props) {
+        super(props);
+        this.state = {
+            location: {
+                lat: null,
+                lng: null
+            }
+        };
+    }
+
+    //Method used to get state from ShowMap
+    onLocationChange(newLat, newLng) {
+        console.log("on change clicked");
+        this.setState({
+            location: {
+                lat: newLat,
+                lng: newLng
+            }
+        });
+        console.log(this.state);
+    }
+
+    render() {
+        return (
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/entryform" component={Search} />
+                    <Route exact path="/myplaces" component={MyPlaces} />
+                </Switch>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
