@@ -8,8 +8,10 @@ class Home extends Component {
         return (
             <div>
                 <JumboHead />
-                <NavButtons />
                 <ShowMap />
+                <div>
+                    <NavButtons />
+                </div>
             </div>
         );
     }

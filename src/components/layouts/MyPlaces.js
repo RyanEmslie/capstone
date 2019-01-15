@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import ShowMap from "../ShowMap";
 import Header from "../Header";
-import NavBar from "../NavBar";
+import NavButtons from "../NavButtons";
 
 class MyPalces extends Component {
     render() {
         return (
             <div>
                 <Header />
-                <NavBar />
+                <NavButtons />
                 <ShowMap />
             </div>
         );

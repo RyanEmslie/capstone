@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Card, CardBody } from "reactstrap";
 
+// import Proptypes from "prop-types";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 
@@ -18,7 +20,7 @@ class ShowMap extends Component {
     // From GeoLocation API
     // If user declines browser location,
     //their ID will be taken from https://api.ip.sb
-    componentDidMount() {
+    componentWillMount() {
         navigator.geolocation.getCurrentPosition(
             position => {
                 console.log(`Location received from browser`);
@@ -56,7 +58,7 @@ class ShowMap extends Component {
             location: { lat: e.latlng.lat, lng: e.latlng.lng }
         });
         //Passes Lat and Long up to App state
-        this.props.onLocationChange(e.latlng.lat, e.latlng.lng);
+        // this.props.onLocationChange(e.latlng.lat, e.latlng.lng);
     };
 
     render() {
